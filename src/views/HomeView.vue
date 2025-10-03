@@ -1,20 +1,21 @@
 <script setup>
-import { ref } from 'vue'
 
-let message =ref("Hello world");
-setTimeout(()=>{
-  message.value="I have been changed"
-},2000);
+import {useStorage} from '@/composable/useStorage.js'
 
-const doSomething = ()=> {
-  alert("Hello there")
-}
- </script>
+let food = useStorage('food','salad')
+let age =  useStorage('age', 22)
+
+// let food = ref(localStorage.getItem('food'));
+// let age = ref(localStorage.getItem('age'));
+
+
+</script>
 <template>
-  <h2>Home</h2>
-  <p>{{message}}</p>
-  <button @click="doSomething">Click me</button>
   <p>
-    <input v-model="message" type="text"/>
+    What is your favorite food? <input type="text" v-model="food">
   </p>
+  <p>
+    How old are you? <input type="text" v-model="age">
+  </p>
+  <p>{{food}}</p>
 </template>
