@@ -1,21 +1,13 @@
 <script setup>
-
-import {useStorage} from '@/composable/useStorage.js'
-
-let food = useStorage('food','salad')
-let age =  useStorage('age', 22)
-
-// let food = ref(localStorage.getItem('food'));
-// let age = ref(localStorage.getItem('age'));
-
-
+import TabbableTextarea from '@/components/TabbableTextarea.vue'
+import { ref } from 'vue'
+let comment = ref('test value');
 </script>
+
 <template>
-  <p>
-    What is your favorite food? <input type="text" v-model="food">
-  </p>
-  <p>
-    How old are you? <input type="text" v-model="age">
-  </p>
-  <p>{{food}}</p>
+  <main>
+    <form>
+      <TabbableTextarea v-model="comment" style="width: 100%; height: 320px;"/>
+    </form>
+  </main>
 </template>
