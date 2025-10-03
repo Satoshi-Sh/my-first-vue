@@ -8,9 +8,11 @@ import { RouterView } from 'vue-router'
     Visit <a href="https://vuejs.org/" target="_blank" rel="noopener">vuejs.org</a> to read the
     documentation
   </p>
-  <RouterLink to="/">Home</RouterLink>
-  <RouterLink to="/about">About</RouterLink>
-  <RouterLink to="/contact">Contact</RouterLink>
+  <nav>
+    <RouterLink to="/">Home</RouterLink>
+    <RouterLink to="/about">About</RouterLink>
+    <RouterLink to="/contact">Contact</RouterLink>
+  </nav>
   <RouterView/>
 </template>
 
