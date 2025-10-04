@@ -1,19 +1,43 @@
 <script setup>
 import TeamMembers from '@/components/Teams/TeamMembers.vue'
-import team from '@/team.json'
 import TeamHeader from '@/components/Teams/TeamHeader.vue'
 import TeamFooter from '@/components/Teams/TeamFooter.vue'
+import Modal  from '@/components/Modal.vue'
 
+import {useTeamStore} from '@/stores/TeamStore.js'
+import { ref } from 'vue'
+let team = useTeamStore();
+team.fill()
+
+let showModal = ref(false);
 
 </script>
 
 <template>
   <div class="p-20">
-    <TeamHeader :team="team" />
+    <TeamHeader @showModal="showModal= !showModal" />
   <main>
-    <TeamMembers :team="team" />
+    <TeamMembers />
 
   </main>
-   <TeamFooter :team = "team" />
+   <TeamFooter/>
   </div>
+  <Modal :show="showModal" @toggleShow="showModal= !showModal">
+    <template #header>
+      Title
+    </template>
+    <template #default>
+      <p>Add New Member</p>
+      <form class="mt-6">
+        <div class="flex gap-2">
+          <input class="flex-1" type="email" placeholder="Enter Your Email Address" autofocus />
+          <button>Add</button>
+        </div>
+
+      </form>
+    </template>
+    <template #footer>
+      This is a new footer
+    </template>
+  </Modal>
 </template>

@@ -1,14 +1,14 @@
 <script setup>
-defineProps({
-  team: Object
-})
+import {useTeamStore} from '@/stores/TeamStore.js'
+let team = useTeamStore();
+// setTimeout(()=>{team.grow(10)},2000)
 </script>
 
 <template>
   <header class="flex justify-between">
     <div>
-      <button class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded disabled:bg-gray-400"
-              :disabled="team.members.length === team.spots">Add Member ({{team.spots - team.members.length}} Spots Left)</button>
+      <button @click="$emit('showModal')" class=" bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded disabled:bg-gray-400 cursor-pointer"
+              :disabled="! team.remaining">Add Member ({{team.remaining}} Spots Left)</button>
     </div>
 
     <div>
