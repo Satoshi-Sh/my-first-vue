@@ -7,11 +7,13 @@ defineProps({ quiz: Object });
 // }, 3000);
 // let quiz = inject('quiz');
 // let name = inject('name');
+import {state} from "@/stores/quizStore.js"
 </script>
 
 <template>
   <div>
-    <h5>{{ quiz.name }}</h5>
+    <h5>{{ state.name }}</h5>
+    <button @click="state.name='Changed'">Click me</button>
     <!-- <button @click="changeName">{{ name }}</button> -->
     <ul>
       <li><a href="#">Get a Job</a></li>

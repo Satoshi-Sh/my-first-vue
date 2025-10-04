@@ -2,15 +2,16 @@
 import { inject } from "vue";
 import QuizFooterLinks from "@/components/Quiz/QuizFooterLinks.vue";
 
-defineProps({
-  quiz: Object
-});
+// defineProps({
+//   quiz: Object
+// });
+import {state} from "@/stores/quizStore.js"
 
 </script>
 
 <template>
   <div>
-    <h5>{{quiz.name}}</h5>
+    <h5>{{state.name}}</h5>
   </div>
 
   <footer>
