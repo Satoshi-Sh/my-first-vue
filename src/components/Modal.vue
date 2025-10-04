@@ -5,22 +5,26 @@ defineProps({
 </script>
 
 <template>
-  <div v-if="show" class="modal-mask">
-    <div class="modal-container">
-      <div class="flex justify-between">
-        <header>
-          <slot name="header">default header</slot>
-        </header>
-        <button class="cursor-pointer" @click="$emit('toggleShow')">Close</button>
+  <Transition name="modal">
+    <div v-if="show" class="modal-mask">
+      <div class="modal-container">
+        <div class="flex justify-between">
+          <header>
+            <slot name="header">default header</slot>
+          </header>
+          <button class="cursor-pointer" @click="$emit('toggleShow')">Close</button>
+        </div>
+        <div><slot>default body</slot></div>
+        <footer class="modal-footer">
+          <slot name="footer">footer</slot>
+        </footer>
+
       </div>
-      <div><slot>default body</slot></div>
-      <footer class="modal-footer">
-        <slot name="footer">footer</slot>
-      </footer>
 
     </div>
 
-  </div>
+  </Transition>
+
 </template>
 
 <style scoped>
@@ -52,5 +56,25 @@ button{
 
 button:hover{
   background:  #ac9a9a
+}
+
+.modal-enter-from{
+  opacity:0;
+}
+.modal-enter-to{
+  opacity:1;
+}
+.modal-enter-active{
+  transition: opacity 0.3s;
+}
+
+.modal-leave-from{
+  opacity: 100;
+}
+.modal-leave-to{
+  opacity:0;
+}
+.modal-leave-active{
+  transition: opacity 0.15s;
 }
 </style>
