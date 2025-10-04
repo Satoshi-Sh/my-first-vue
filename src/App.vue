@@ -3,16 +3,11 @@ import { RouterView } from 'vue-router'
 </script>
 
 <template>
-  <h1>You did it!</h1>
-  <p>
-    Visit <a href="https://vuejs.org/" target="_blank" rel="noopener">vuejs.org</a> to read the
-    documentation
-  </p>
-  <nav>
+  <nav class="flex gap-5 m-6">
     <RouterLink to="/">Home</RouterLink>
     <RouterLink to="/about">About</RouterLink>
     <RouterLink to="/contact">Contact</RouterLink>
-    <RouterLink to="/counter">Countr</RouterLink>
+    <RouterLink to="/counter">Counter</RouterLink>
   </nav>
   <RouterView/>
 </template>
